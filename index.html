@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>COVID-jisei</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the necessary javascript -->
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+
+    <script language="javascript" src="tracery.js"></script>
+    <script language="javascript" src="mods-eng-base.js"></script>
+    <script language="javascript" src="grammar.js"></script>
+
+    <script>
+      
+      var grammar = tracery.createGrammar(source);
+      grammar.addModifiers(tracery.baseEngModifiers); 
+
+
+      function generatePoem() {
+        var result = grammar.flatten("#origin#");
+
+        output.innerHTML = result;
+      }
+    </script>
+  </head>
+  <body onload="generatePoem()">
+    <h2>COVID-jisei</h2>
+
+    <div id="output">Loading jisei...</div>
+
+    <div id="reload">
+      <button onclick="generatePoem()">Another life lost</button>
+    </div>
+
+    <div id="about">
+      <br>COVID-jisei is inspired by the tradition of Zen deathbed poems.<br>
+      Each haiku is a blend of the final words of COVID-19 patients
+      prior to their intubation. <br>Made by Jess Skyleson with  <a href="http://tracery.io/"style="color: #3379FF">Tracery.</a>
+    </div>
+  </body>
+</html>
